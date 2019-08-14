@@ -49,6 +49,7 @@ void Draw()
 	{
 		cout << "#";
 	}
+	cout << "     " << "Pozicia X: " << x << " Pozicia Y: " << y << "  Score: " << score << endl;
 	cout << endl;
 
 	for (int i = 0; i < height; i++)
@@ -148,9 +149,21 @@ void Logic()
 		y++;
 		break;
 
-	default: // 5>>55
+	default:
 		break;
 
+	}
+	// Exit game - Position -1 or +21
+	if (x > width || x < 0 || y > height || y < 0)
+	{
+		gameOver = true;
+	}
+	// score
+	if (x == fruitX && y == fruitY)
+	{
+		score += 10;
+		fruitX = rand() % width;
+		fruitY = rand() % height;
 	}
 }
 
