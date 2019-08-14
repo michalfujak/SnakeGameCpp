@@ -6,6 +6,7 @@
 */
 
 #include <iostream>
+#include <conio.h>
 
 using namespace std;
 
@@ -58,6 +59,14 @@ void Draw()
 			{
 				cout << "#";
 			}
+			if (i == y && j == x)
+			{
+				cout << "O";
+			}
+			else if (i == fruitY && j == fruitX )
+			{
+				cout << "F";
+			}
 			else
 			{
 				cout << " ";
@@ -83,7 +92,34 @@ void Draw()
 */
 void Input()
 {
+	if (_kbhit())
+	{
+		switch (_getch())
+		{
+		case 'a':
+			dir = LEFT;
+			break;
 
+		case 'w':
+			dir = TOP;
+			break;
+
+		case 'd':
+			dir = RIGHT;
+			break;
+
+		case 's':
+			dir = BOTTOM;
+			break;
+
+		case 'x':
+			gameOver = true;
+			break;
+
+		default:
+			break;
+		}
+	}
 }
 
 /*
@@ -91,7 +127,31 @@ void Input()
 */
 void Logic()
 {
+	switch (dir)
+	{
+	case STOP:
+		break;
 
+	case LEFT:
+		x--;
+		break;
+
+	case RIGHT:
+		x++;
+		break;
+
+	case TOP:
+		y--;
+		break;
+
+	case BOTTOM:
+		y++;
+		break;
+
+	default: // 5>>55
+		break;
+
+	}
 }
 
 /*
